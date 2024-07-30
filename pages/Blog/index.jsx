@@ -1,6 +1,7 @@
 import { Card, CardContent, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useRouter } from 'next/navigation';
+import styles from '../../app/blog.module.css';
 
 const Blog = () => {
   useEffect(() => {
@@ -17,10 +18,10 @@ const Blog = () => {
   return (
     <Grid container spacing={2}>
       {blogList?.map((blog) => (
-        <Grid item xs={6} onClick={() => router.push(`/Blog/${blog?.id}`)}>
+        <Grid key={blog?.id} item xs={6} onClick={() => router.push(`/Blog/${blog?.id}`)}>
           <Card variant="outlined">
             <CardContent>
-              <h1>{blog?.title}</h1>
+              <h1 className={styles.text}>{blog?.title}</h1>
               <h2>{blog?.author}</h2>
               <p>{blog?.date_published}</p>
               <p>{`${blog?.content?.substring(0, 20)}...`}</p>

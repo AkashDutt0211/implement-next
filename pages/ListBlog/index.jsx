@@ -50,7 +50,7 @@ const ListBlog = () => {
         </Button>
       </div>
       {blogList?.map((b) => (
-        <Card variant="outlined">
+        <Card key={b?._id} variant="outlined">
           <CardContent>
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <div>
